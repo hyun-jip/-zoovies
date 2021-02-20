@@ -1,22 +1,24 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import TV from "../screens/TV";
+import TV from "../screens/Tv";
 import Movies from "../screens/Movies/MoviesContainer";
 import Search from "../screens/Search";
 import Favs from "../screens/Favs";
 import { useLayoutEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Platform } from "react-native";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Tabs = createBottomTabNavigator();
 
-const getHeaderName = ({ route }) =>
-  route?.state?.routeNames[route.state.index] || "Movies";
+const getHeaderName = (route) =>
+  getFocusedRouteNameFromRoute(route) || "Movies";
 export default ({ navigation, route }) => {
   useLayoutEffect(() => {
     const name = getHeaderName(route);
     navigation.setOptions({
       title: name,
+      headerTitleAlign: "center",
     });
   }, [route]);
   return (

@@ -55,7 +55,7 @@ const Horizontal = ({ id, title, poster, overview, releaseDate }) => (
 Horizontal.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string,
   poster: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
 };

@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
-import { apiImage } from "../../api";
-import { trimText } from "../../utils";
-import Poster from "../Poster";
-import Votes from "../Votes";
+import { apiImage } from "../api";
+import { trimText } from "../utils";
+import Poster from "./Poster";
+import Votes from "./Votes";
 
 const Container = styled.View`
   height: 100%;
@@ -67,9 +67,9 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
       <Data>
         <Title>{trimText(title, 25)}</Title>
         <VotesContainer>
-          <Votes votes={votes} />
+          {votes ? <Votes votes={votes} /> : null}
         </VotesContainer>
-        <Overview>{trimText(overview, 100)}</Overview>
+        {overview ? <Overview>{trimText(overview, 100)}</Overview> : null}
         <TouchableOpacity>
           <Button>
             <ButtonText>View details</ButtonText>
